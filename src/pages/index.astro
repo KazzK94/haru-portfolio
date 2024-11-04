@@ -1,20 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import AnimatedImage from "../components/AnimatedImage.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Haru Blue | Artist Portfolio">
-  <header class="text-center mb-4 lg:mb-6 mt-8">
-    <h1
-      class="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-br from-blue-700 to-purple-600 text-transparent bg-clip-text"
-    >
-      Haru Blue
-    </h1>
-    <p class="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto italic">
-      This is where I share my digital art and illustrations. I hope you enjoy
-      them!
-    </p>
-  </header>
+  <Header />
   <main class="mx-auto p-4 md:px-8 max-w-7xl">
     <div
       class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 lg:grid-rows-[repeat(4,_260px)] gap-4 md:gap-6"
@@ -55,5 +47,7 @@ import AnimatedImage from "../components/AnimatedImage.astro";
         />
       </div>
     </div>
-  </main></Layout
->
+  </main>
+
+  <Footer />
+</Layout>
