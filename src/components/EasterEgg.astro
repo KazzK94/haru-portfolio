@@ -1,0 +1,79 @@
+---
+
+---
+
+<style>
+  .moving-div {
+    left: 0;
+    animation: moveLeftRight 15s linear;
+  }
+
+  .moving-div-reversed {
+    left: 0;
+    animation: moveRightLeft 15s linear;
+  }
+
+  .moving-div-reversed img {
+    transform: scaleX(-1);
+  }
+
+  @keyframes moveLeftRight {
+    from {
+      left: -120vw;
+    }
+    to {
+      left: 120vw;
+    }
+  }
+
+  @keyframes moveRightLeft {
+    from {
+      left: 120vw;
+    }
+    to {
+      left: -120vw;
+    }
+  }
+</style>
+
+<a
+  id="easter-egg"
+  class="!w-56 fixed bg-green-600 -left-96 rounded-3xl z-50 overflow-hidden shadow-lg shadow-gray-900"
+  href="https://haru-surprise.netlify.app/"
+  target="_blank"
+>
+  <div class="relative">
+    <img
+      src="/easter-egg.jpg"
+      alt="Easter Egg (CLICK ME!!)"
+      class="!w-56 object-cover"
+    />
+    <p
+      class="absolute left-4 right-4 bottom-4 text-xl text-center bg-blue-400/80 text-gray-900 border border-gray-800 italic rounded-lg"
+    >
+      Hey, you!!!
+      <br class="mt-1" />
+      Wanna see something cool?
+    </p>
+  </div>
+</a>
+
+<script>
+  let reversed = false;
+  const easterEgg = document.getElementById("easter-egg");
+
+  setTimeout(runAnimation, 5000);
+
+  function runAnimation() {
+    if (!easterEgg) return;
+    easterEgg.style.top = `${Math.floor(Math.random() * 30) + 5}%`;
+    easterEgg.classList.add(reversed ? "moving-div-reversed" : "moving-div");
+    setTimeout(() => {
+      easterEgg.classList.remove(
+        reversed ? "moving-div-reversed" : "moving-div"
+      );
+      reversed = !reversed;
+      setTimeout(runAnimation, 5000);
+    }, 14900);
+  }
+</script>
