@@ -26,6 +26,9 @@ const { title } = Astro.props;
     <slot />
 
     <style>
+      @view-transition {
+        navigation: auto;
+      }
       body {
         background: linear-gradient(
           135deg,

@@ -3,12 +3,16 @@ interface Props {
   src: string;
   alt: string;
   className?: string;
+  style?: string;
 }
 
-const { src, alt, className = "" } = Astro.props;
+const { src, alt, className = "", style = "" } = Astro.props;
+
+// TODO: Change href in the <a> tag to the correct path
 ---
 
-<div
+<a
+  href=`/detail`
   class=`h-full group relative overflow-hidden rounded-xl bg-gray-100 
   shadow-sm hover:shadow-xl 
   transition-all duration-300 animated-image opacity-0 translate-y-5`
@@ -16,6 +20,7 @@ const { src, alt, className = "" } = Astro.props;
   <img
     src={src}
     alt={alt}
+	style={style}
     loading="lazy"
     class={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${className}`}
   />
@@ -30,7 +35,7 @@ const { src, alt, className = "" } = Astro.props;
       </h3>
     </div>
   </div>
-</div>
+</a>
 
 <script>
   const images = document.querySelectorAll(".animated-image");
